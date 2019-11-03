@@ -10,6 +10,10 @@ export default class instaService {
             throw new Error (`Could not fetch ${url}; received ${res.status}` );
         }
 
-        return res.json(); 
+        return await res.json(); 
+    }
+    getAllPosts = async () => {
+        const res = await this.getResource('/posts/');
+        return res;
     }
 }
